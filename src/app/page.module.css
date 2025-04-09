@@ -1,0 +1,248 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: #1a1a1a;
+}
+
+.title {
+  font-size: 3rem;
+  color: #f5d264;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px rgba(245, 210, 100, 0.5);
+}
+
+.gameContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+/* Game HUD Styles */
+.gameHUD {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.topBar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottomBar {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.scoreDisplay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 15px;
+  border-radius: 4px;
+  color: #f5d264;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.scoreLabel {
+  margin-right: 8px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.scoreValue {
+  font-size: 1.4rem;
+}
+
+.wantedLevel {
+  display: flex;
+  gap: 6px;
+}
+
+.star {
+  width: 25px;
+  height: 25px;
+  background-image: url("/star-empty.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.star.active {
+  background-image: url("/star-filled.svg");
+  opacity: 1;
+}
+
+.healthBar {
+  width: 300px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.healthBarInner {
+  height: 100%;
+  background-color: #e74c3c;
+  transition: width 0.3s ease-out;
+  border-radius: 7px;
+}
+
+/* Menu Overlay Styles */
+.menuOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.menuTitle {
+  font-size: 4rem;
+  color: #f5d264;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 15px rgba(245, 210, 100, 0.5);
+}
+
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  text-align: center;
+}
+
+.menuDescription {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.scoreText {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.button {
+  background-color: #f5d264;
+  color: #1a1a1a;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.button:hover {
+  background-color: #f7dc86;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: #f5d264;
+  border: 2px solid #f5d264;
+  padding: 10px 28px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.secondaryButton:hover {
+  background-color: rgba(245, 210, 100, 0.1);
+  transform: translateY(-2px);
+}
+
+.secondaryButton:active {
+  transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .menuTitle {
+    font-size: 2.5rem;
+  }
+
+  .scoreDisplay {
+    font-size: 1rem;
+  }
+
+  .star {
+    width: 20px;
+    height: 20px;
+  }
+
+  .healthBar {
+    width: 200px;
+  }
+
+  .button,
+  .secondaryButton {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
